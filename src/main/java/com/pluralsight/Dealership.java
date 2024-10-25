@@ -9,20 +9,20 @@ public class Dealership
     private String name;
     private String address;
     private String phone;
-    private ArrayList<Vehicle> inventory;
+    private ArrayList<Vehicle> inventory = new ArrayList<>();
 
-    public Dealership(String name, String address, String phone, ArrayList<Vehicle> inventory)
+    public Dealership(String name, String address, String phone)
     {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = inventory = new ArrayList <Vehicle>();
+        this.inventory =  new ArrayList <>();
     }
 
-    public void addVehicle(){
+    public void addVehicle(Vehicle vehicle){
 
     }
-    public void removeVehicle(){
+    public void removeVehicle(Vehicle vehicle){
 
     }
 
