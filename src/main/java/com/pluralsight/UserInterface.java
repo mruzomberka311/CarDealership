@@ -93,18 +93,20 @@ private void init() {
 
     }
     private Vehicle processGetByVehicleTypeRequest(){
+        return null;
 
     }
-    private Vehicle processGetAllVehiclesRequest(){
+    private void processGetAllVehiclesRequest(){
        List<Vehicle> vehicles = dealership.getAllVehicles();
-        displayVehicles(vehicles);
-
-
+       displayVehicles(vehicles);
     }
+
     private Vehicle processAddVehicleRequest(){
+        return null;
 
     }
     private Vehicle processRemoveVehicleRequest(){
+        return null;
 
     }
 
@@ -123,8 +125,8 @@ private void init() {
     }
 
     private void displayVehicles(List<Vehicle> vehicles){
-        for (Vehicle vehicle : dealership.getAllVehicles()) {
-            System.out.println(vehicle);
+        for (Vehicle Vehicle : dealership.getAllVehicles()) {
+            System.out.println(Vehicle);
         }
     }
 }
