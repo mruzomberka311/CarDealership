@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -15,22 +16,12 @@ private void init() {
     this.dealership = manager.getDealership();
 }
     public void display(){
+
         init();
         boolean running = true;
 
         while (running = true){
-            System.out.println("Welcome to the dealership menu!");
-            System.out.println("P) Price request");
-            System.out.println("M) Make/Model request");
-            System.out.println("Y) Year request");
-            System.out.println("C) Color request");
-            System.out.println("G) Mileage request");
-            System.out.println("T) Vehicle Type request");
-            System.out.println("A) All Vehicles request");
-            System.out.println("+) Add Vehicle request");
-            System.out.println("-) Remove Vehicle request");
-            System.out.println("X) Exit");
-
+            displayMenu();
             String choice = scanner.nextLine();
 
             switch (choice.toUpperCase()){
@@ -105,6 +96,9 @@ private void init() {
 
     }
     private Vehicle processGetAllVehiclesRequest(){
+       List<Vehicle> vehicles = dealership.getAllVehicles();
+        displayVehicles(vehicles);
+
 
     }
     private Vehicle processAddVehicleRequest(){
@@ -112,5 +106,25 @@ private void init() {
     }
     private Vehicle processRemoveVehicleRequest(){
 
+    }
+
+    private void displayMenu(){
+        System.out.println("Welcome to the dealership menu!");
+        System.out.println("P) Price request");
+        System.out.println("M) Make/Model request");
+        System.out.println("Y) Year request");
+        System.out.println("C) Color request");
+        System.out.println("G) Mileage request");
+        System.out.println("T) Vehicle Type request");
+        System.out.println("A) All Vehicles request");
+        System.out.println("+) Add Vehicle request");
+        System.out.println("-) Remove Vehicle request");
+        System.out.println("X) Exit");
+    }
+
+    private void displayVehicles(List<Vehicle> vehicles){
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            System.out.println(vehicle);
+        }
     }
 }
