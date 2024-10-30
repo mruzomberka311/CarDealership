@@ -29,9 +29,9 @@ public class Dealership
         {
 
             System.out.println("Please enter the vehicle VIN");
-            int vin = scanner.nextInt();
+            int vin = Integer.parseInt(scanner.nextLine());
             System.out.println("Please enter the vehicle year");
-            int year = scanner.nextInt();
+            int year = Integer.parseInt(scanner.nextLine());
             System.out.println("Please enter the make and model");
             String make = scanner.nextLine();
             System.out.println("Please enter the vehicle model");
@@ -42,7 +42,6 @@ public class Dealership
             String vehicleType = scanner.nextLine();
             System.out.println("Please enter the total mileage");
             int odometer = scanner.nextInt();
-            ;
             System.out.println("Please enter the vehicle price");
             double price = scanner.nextDouble();
 
@@ -59,16 +58,13 @@ public class Dealership
 
         catch (Exception e)
         {
-            System.err.println("Error writing the vehivle to the file");
+            System.err.println("Error writing the vehicle to the file");
             e.printStackTrace();
         }
     }
 
     public void removeVehicle(Vehicle vehicle){
-
-
-
-
+        inventory.remove(vehicle);
     }
 
     public List<Vehicle> getAllVehicles(){
@@ -77,56 +73,78 @@ public class Dealership
 
     public List<Vehicle> getVehiclesByPrice(double min, double max){
         for (Vehicle price : inventory){
-            if (price )
+
+
+            }
+
         }
-        return null;
-    }
-    public List<Vehicle> getVehiclesByMakeModel(String make, String model){
-        return null;
+
+
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model)
+    {
+        for (Vehicle vehicle : inventory)
+        {
+            String vehicleMake = vehicle.getMake();
+            String vehicleModel = vehicle.getModel();
+            if (make.equalsIgnoreCase(vehicleMake) || model.equalsIgnoreCase(vehicleModel))
+            {
+                return;
+            }
+        }
     }
 
     public List<Vehicle> getVehiclesByYear(int min, int max){
         return null;
     }
 
-    public List<Vehicle> getVehiclesByColor(String color){
-        return null;
+    public List<Vehicle> getVehiclesByColor(String color)
+    {
+        List<Vehicle> listByColor = new ArrayList<>();
+        for (Vehicle vehicle : inventory)
+        {
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
+                listByColor.add(vehicle);
+            }
+        }
+        return listByColor;
     }
+
 
     public List<Vehicle> getVehiclesByMileage(int min, int max){
         return null;
     }
 
-    public List<Vehicle> getVehiclesByType(String vehicleType){
-        return null;
-    }
+    public List<Vehicle> getVehiclesByType(String vehicleType) {
+        for (Vehicle vehicle : inventory) {
+            String typeOfVehicle = vehicle.getVehicleType();
+            if (vehicleType.equalsIgnoreCase(vehicleType)) {
+                return;
+            }
+        }
+        }
 
+            public String getName () {
+                return name;
+            }
 
+            public void setName (String name){
+                this.name = name;
+            }
 
+            public String getAddress () {
+                return address;
+            }
 
+            public void setAddress (String address){
+                this.address = address;
+            }
 
-    public String getName() {
-        return name;
-    }
+            public String getPhone () {
+                return phone;
+            }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+            public void setPhone (String phone){
+                this.phone = phone;
+            }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-}
+        }
