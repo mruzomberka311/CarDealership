@@ -1,11 +1,15 @@
 package com.pluralsight;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.io.*;
 
 public class Dealership
 {
-
+    Scanner scanner = new Scanner(System.in);
     private String name;
     private String address;
     private String phone;
@@ -19,10 +23,51 @@ public class Dealership
         this.inventory =  new ArrayList <>();
     }
 
-    public void addVehicle(Vehicle vehicle){
+    public void addVehicle(Vehicle vehicle)
+    {
+        try
+        {
 
+            System.out.println("Please enter the vehicle VIN");
+            int vin = scanner.nextInt();
+            System.out.println("Please enter the vehicle year");
+            int year = scanner.nextInt();
+            System.out.println("Please enter the make and model");
+            String make = scanner.nextLine();
+            System.out.println("Please enter the vehicle model");
+            String model = scanner.nextLine();
+            System.out.println("Please enter the vehicle color");
+            String color = scanner.nextLine();
+            System.out.println("Please enter the vehicle type");
+            String vehicleType = scanner.nextLine();
+            System.out.println("Please enter the total mileage");
+            int odometer = scanner.nextInt();
+            ;
+            System.out.println("Please enter the vehicle price");
+            double price = scanner.nextDouble();
+
+            Vehicle addVehicle = new Vehicle(vin, year, make, model, color, vehicleType, odometer, price);
+            inventory.add(addVehicle);
+            System.out.println("Vehicle added successfully!");
+
+            FileWriter fileWriter = new FileWriter("dealership.csv");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(addVehicle.toString());
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        }
+
+        catch (Exception e)
+        {
+            System.err.println("Error writing the vehivle to the file");
+            e.printStackTrace();
+        }
     }
+
     public void removeVehicle(Vehicle vehicle){
+
+
+
 
     }
 
@@ -31,6 +76,9 @@ public class Dealership
     }
 
     public List<Vehicle> getVehiclesByPrice(double min, double max){
+        for (Vehicle price : inventory){
+            if (price )
+        }
         return null;
     }
     public List<Vehicle> getVehiclesByMakeModel(String make, String model){

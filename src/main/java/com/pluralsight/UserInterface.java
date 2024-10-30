@@ -125,8 +125,8 @@ private void init() {
     }
 
     private void displayVehicles(List<Vehicle> vehicles){
-        for (Vehicle Vehicle : dealership.getAllVehicles()) {
-            System.out.println(Vehicle);
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            System.out.println(vehicle);
         }
     }
 }
