@@ -23,15 +23,14 @@ public class Dealership
         this.inventory =  new ArrayList <>();
     }
 
-    public void addVehicle(Vehicle vehicle)
+    public void addVehicle()
     {
         try
         {
-
             System.out.println("Please enter the vehicle VIN");
-            int vin = Integer.parseInt(scanner.nextLine());
+            int vin = scanner.nextInt();
             System.out.println("Please enter the vehicle year");
-            int year = Integer.parseInt(scanner.nextLine());
+            int year = scanner.nextInt();
             System.out.println("Please enter the make and model");
             String make = scanner.nextLine();
             System.out.println("Please enter the vehicle model");
@@ -63,13 +62,15 @@ public class Dealership
         }
     }
 
-    public void removeVehicle(Vehicle vehicle)
-    {
-        inventory.remove(vehicle);
+    public void removeVehicle(int vin) {
+        for (Vehicle vehicle : inventory){
+            if (vehicle.getVin() == vin){
+                inventory.remove(vehicle);
+            }
+        }
     }
 
-    public List<Vehicle> getAllVehicles()
-    {
+    public List<Vehicle> getAllVehicles(){
         return null;
     }
 
@@ -107,8 +108,7 @@ public class Dealership
         List<Vehicle> listByYear = new ArrayList<>();
         for (Vehicle vehicle : inventory)
         {
-            if (vehicle.getYear()>= min && vehicle.getYear() <= max)
-            {
+            if (vehicle.getYear()>= min && vehicle.getYear() <= max) {
                 listByYear.add(vehicle);
             }
         }

@@ -18,13 +18,16 @@ private void init() {
     public void display(){
 
         init();
+        displayMenu();
+
         boolean running = true;
 
-        while (running = true){
-            displayMenu();
+        while (running){
+
             String choice = scanner.nextLine();
 
-            switch (choice.toUpperCase()){
+            switch (choice.toUpperCase())
+            {
 
                 case "P":
                     processGetByPriceRequest();
@@ -72,28 +75,49 @@ private void init() {
 
             }
         }
-
-
     }
 
 
     private void processGetByPriceRequest(){
-
+        System.out.println("Please enter a min price");
+        double min = scanner.nextDouble();
+        System.out.println("Please enter a max price");
+        double max = scanner.nextDouble();
+        dealership.getVehiclesByPrice(min, max);
     }
     private void processGetByMakeModelRequest(){
-
+        System.out.println("Please enter the make of the vehicle");
+        String make = scanner.nextLine();
+        System.out.println("Please enter the model of the vehicle");
+        String model = scanner.nextLine();
+        dealership.getVehiclesByMakeModel(make,model);
     }
     private void processGetByYearRequest(){
+        System.out.println("Please enter the min year");
+        int min = scanner.nextInt();
+        System.out.println("Please enter the max year");
+        int max = scanner.nextInt();
+        dealership.getVehiclesByYear(min,max);
 
     }
     private void processGetByColorRequest(){
+        System.out.println("Please enter a vehicle color");
+        String color = scanner.nextLine();
+        dealership.getVehiclesByColor(color);
 
     }
     private void processGetByMileageRequest(){
+        System.out.println("Please enter the min mileage");
+        int min = scanner.nextInt();
+        System.out.println("Please enter the max mileage");
+        int max = scanner.nextInt();
+        dealership.getVehiclesByMileage(min,max);
 
     }
-    private Vehicle processGetByVehicleTypeRequest(){
-        return null;
+    private void processGetByVehicleTypeRequest(){
+        System.out.println("Please enter a vehicle type");
+        String vehicleType = scanner.nextLine();
+        dealership.getVehiclesByType(vehicleType);
 
     }
     private void processGetAllVehiclesRequest(){
@@ -101,12 +125,14 @@ private void init() {
        displayVehicles(vehicles);
     }
 
-    private Vehicle processAddVehicleRequest(){
-        return null;
+    private void processAddVehicleRequest(){
+        dealership.addVehicle();
 
     }
-    private Vehicle processRemoveVehicleRequest(){
-        return null;
+    private void processRemoveVehicleRequest(){
+        System.out.println("What vehicle would you like to remove from inventory?");
+        int vin = Integer.parseInt(scanner.nextLine());
+       dealership.removeVehicle(vin);
 
     }
 
